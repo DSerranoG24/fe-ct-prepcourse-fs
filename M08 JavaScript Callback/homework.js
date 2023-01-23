@@ -5,12 +5,18 @@ function mayuscula(nombre) {
    // Debe devolver el mismo nombre, pero con la primera letra en mayúscula.
    // [Ejemplo]: "mario" ----> "Mario".
    // Tu código:
+   var saludoS = nombre.split('');
+   saludoS.shift();
+   saludoC = saludoS.join('');
+   var cambio = nombre[0].toUpperCase() + saludoC;
+   return (cambio);
 }
 
 function invocarCallback(cb) {
    // Invoca/ejecuta el callback `cb`.
    // [NOTA]: no debes reotrnar nada.
    // Tu código:
+   cb();
 }
 
 function operacionMatematica(num1, num2, cb) {
@@ -18,6 +24,7 @@ function operacionMatematica(num1, num2, cb) {
    // El callback realiza una operación matemática, por lo que necesita de los dos números.
    // Retorna el resultado del callback pasándole como parámetros los números.
    // Tu código:
+   return cb(num1,num2);
 }
 
 function sumarArray(arrayOfNumbers, cb) {
@@ -26,6 +33,11 @@ function sumarArray(arrayOfNumbers, cb) {
    // Este resultado debes pasárselo como argumento al callback recibido.
    // [NOTA]: no debes reotrnar nada.
    // Tu código:
+   var j = 0
+   for (i=0;i<arrayOfNumbers.length;i++){
+      var j = j + arrayOfNumbers[i];
+   }
+   cb(j);
 }
 
 function forEach(array, cb) {
@@ -33,6 +45,9 @@ function forEach(array, cb) {
    // Debes iterar sobre el arreglo, y por cada elemento ejecutar el callback.
    // Debes pasarle el elemento como argumento al callback.
    // Tu código:
+   for (i=0;i<array.length;i++){
+      cb(array[i]);
+   }
 }
 
 function map(array, cb) {
@@ -40,12 +55,29 @@ function map(array, cb) {
    // Tiene que guardar el resultado devuelto por el callback en cada elemento dentro de un nuevo arreglo.
    // Retorna el nuevo arreglo.
    // Tu código:
+   var nuevo = [];
+   for (i=0;i<array.length;i++){
+      nuevo.push(cb(array[i]));
+   }
+   return nuevo;
 }
 
 function filter(arrayOfStrings) {
    // Debes identificar todos los elementos el arreglo que comiencen con la letra "a".
    // Luego retorna un nuevo arreglo con estos elementos.
    // Tu código:
+   var nuevo = [];
+   for (i=0;i<arrayOfStrings.length;i++){
+      var array = arrayOfStrings[i].split();
+      for (j=0;j<array.length;j++){
+        var array2 = array[j].split('');
+        for(k=0;k<array2.length;k++)
+            if(k==0 && array2[k] == 'a'){
+                nuevo.push(arrayOfStrings[i])
+            }
+      }
+   }
+   return nuevo;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
